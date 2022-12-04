@@ -43,6 +43,25 @@ plot_acf(analysis,lags=20)
 plot_pacf(analysis , lags=40)
 plt.show()
 
+taille=df.shape[0]
+m=np.zeros(2*taille)
+moy_mob=np.zeros(2*taille)
+for i in range (0,taille):
+    m[i]=df['Consommation (MW)'][i]
+    moy_mob[i]=df['moyenne_mobile_Consommation'][i]
+
+
+def Prevision(k):
+    taille=8855
+    l=taille-k
+    for i in range (0,l):
+        z=m[taille+i]
+        m[taille+i]=moy_mob[taille+i-1]
+        moy_mob[taille+i-1]=z
+    return (moy_mob[taille+l-1])
+p=Prevision(taille+3000)
+print(p) 
+        
 
 
 
