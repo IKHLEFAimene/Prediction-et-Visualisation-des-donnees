@@ -44,6 +44,14 @@ plot_pacf(analysis , lags=40)
 plt.show()
 
 taille=df.shape[0]
+A=np.zeros(l)
+for i in range(0,5):
+    A[i]=2
+for i in range(5,l):
+    A[i]=df['moyenne_mobile_Consommation'][i] /df['Consommation (MW)'][i]
+print(min(A)) #minimum de ce rapport égale à 0.72 Donc la méthode des moyennes mobiles est une bonne prévision pour ce modéle #
+
+taille=df.shape[0]
 m=np.zeros(2*taille)
 moy_mob=np.zeros(2*taille)
 for i in range (0,taille):
