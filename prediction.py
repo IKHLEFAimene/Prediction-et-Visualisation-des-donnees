@@ -1,3 +1,50 @@
+
+import numpy as np
+import collections as cl
+import os
+import matplotlib.pyplot as plt
+import math
+#import pmdarima as pm
+from pmdarima import auto_arima, ARIMA
+import pandas as pd
+from  sklearn.metrics import mean_squared_error
+from sklearn.linear_model import LinearRegression
+import warnings
+warnings.filterwarnings("ignore")
+#import statsmodels.api as sm
+from statsmodels.tsa.seasonal import seasonal_decompose
+#from statsmodels.tsa.arima_model import ARIMA
+import statsmodels.api  as sm 
+from statsmodels.graphics.tsaplots import plot_acf
+from statsmodels.graphics.tsaplots import plot_pacf
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
+df = pd.read_csv('C:\\Users\\SCD UM\\Desktop\\AD\\eco2mix-national-tr.csv',sep = ';')
+#print(df.shape)
+df=df.dropna()
+#print(df.shape)
+#df['Date - Heure']=pd.to_datetime(df['Date - Heure'])
+#print(df['Date - Heure'])
+df['Date']=pd.to_datetime(df['Date'])
+df['Heure']=pd.to_datetime(df['Heure'])
+df=df[['Consommation (MW)','Date']]
+df.plot(x='Date',y='Consommation (MW)',figsize=(12,6))
+plt.show()
+df.set_index('Date', inplace=True) #indexing la variable date#
+df.resample('M').plot(x='Date',y='Consommation (MW)',figsize=(12,6)) #Couleur par mois#
+df.resample('D').mean().plot()
+df.resample('M').mean().plot()
+#plt.show()
+
+analysis=df[['Consommation (MW)']]
+df['moyenne_mobile_Consommation']=df['Consommation (MW)'].rolling(window=5).mean()
+df.resample('D').mean().plot() #compare la courbe de la ^moyenne mobile et celle du dat#
+#plt.show()
+
+plot_acf(analysis,lags=20)
+plot_pacf(analysis , lags=40)
+plt.show()
+
 import numpy as np
 import collections as cl
 import os
@@ -65,3 +112,4 @@ test=data.iloc[-96:]
 #pred=model.predict(start=start,end=end,type='levels')
 #print(pred)
 print(data)
+
