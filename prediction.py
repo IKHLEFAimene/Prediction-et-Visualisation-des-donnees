@@ -19,12 +19,12 @@ from statsmodels.graphics.tsaplots import plot_acf
 from statsmodels.graphics.tsaplots import plot_pacf
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
 df = pd.read_csv('C:\\Users\\SCD UM\\Desktop\\AD\\eco2mix-national-tr.csv',sep = ';')
 df=df.dropna()
 #df['Date - Heure']=pd.to_datetime(df['Date - Heure'])
 #print(df['Date - Heure'])
 df['Date']=pd.to_datetime(df['Date'])
-df['Heure']=pd.to_datetime(df['Heure'])
 df=df[['Consommation (MW)','Date']]
 df.plot(x='Date',y='Consommation (MW)',figsize=(12,6))
 plt.show()
@@ -37,11 +37,9 @@ plt.show()
 analysis=df[['Consommation (MW)']]
 df['moyenne_mobile_Consommation']=df['Consommation (MW)'].rolling(window=5).mean()
 df.resample('D').mean().plot() #compare la courbe de la ^moyenne mobile et celle du dat#
+df.resample('D').mean().plot()
 plt.show()
 
-plot_acf(analysis,lags=20)
-plot_pacf(analysis , lags=40)
-plt.show()
 
 taille=df.shape[0]
 A=np.zeros(l)
@@ -70,11 +68,28 @@ def Prevision(k):
 p=Prevision(taille+3000)
 print(p) 
         
+P=np.zeros(96)
+for i in range (0,96):
+    P[i]=Prevision(taille+480+i)
+   
+fic=open("fichier1.csv","w")
+fic.write("Heure,Prediction\n")
+for i in range(1,96):
+    
+    fic.write(str(i)+","+str(P[i])+"\n")
+    print("\n")
+fic.close
+df1 = pd.read_csv('C:\\Users\\SCD UM\\Desktop\\fichier1.csv',sep = ',')
+df1.set_index('Heure', inplace=True) 
+print(df1)
 
 
+plot_acf(analysis,lags=20)
+plot_pacf(analysis , lags=40)
+plt.show()
 
 
-
+#Deuxiéme Donnéé#
 
 import numpy as np
 import collections as cl
