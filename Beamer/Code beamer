@@ -1,1 +1,133 @@
+\documentclass[aspectratio=169]{beamer}
 
+\usepackage{beamerthemeshadow}
+\begin{document}
+\title{Développement de logiciel}  
+\subtitle{La consommation d'électricité en France}
+\author{IKHLEF Aimene - DIOP Abdoulaye}
+\date{décembre 02, 2022} 
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Sommaire}\tableofcontents
+\end{frame} 
+
+\section{Prédiction} 
+
+\begin{frame}\frametitle{Prédiction}
+\begin{itemize}
+\item Introduction
+\item Première partie  
+\item Deuxième partie  
+\end{itemize} 
+\end{frame}
+\subsection{Introduction}
+\begin{frame}\frametitle{Introduction}
+L'analyse prédicative des données consiste à analyser une évolution d'une variable en fonction du temps et de prédire ses valeurs futures.\\
+Pour faire ce tache on fait appel aux séries temporelles\\
+Une série temporelles est un DataFrame dont l'index est le temps .  
+\end{frame}
+\subsection{Première partie }
+\begin{frame}\frametitle{Première partie}
+\begin{itemize}
+    \item Conversion de la variable Année en date\\
+    Pour le faire on a besoin de la fonction 'to datetime'. 
+    \item Indexer la variable Année \\
+    Pour le faire on a besoin de la fonction 'set index'.
+    \item  Courbe de la consommation annuelle en fonction du temps \\
+    Pour voir la saisonnalité de la série temporelle.
+     \begin{figure}[htb]
+        
+        \label{fig:logo_UFES}
+        \centering
+        \includegraphics[width=0.5\textwidth]{prÃ©diction.PNG} 
+        \medskip
+    \end{figure}
+\end{itemize}
+
+\end{frame}
+\subsection{Deuxième partie }
+\begin{frame}\frametitle{Deuxième partie}
+\textbf{Utilisation du modèle ARIMA}\\
+\\
+\\
+\vspace{1cm}
+Pour l'usage du modèle ARIMA on a utiliser les package suivantes :\\
+'pmdarima'\\
+'statstmodels.tsa.arima'\\
+
+
+\end{frame}
+\section{Visualisation} 
+\subsection{}
+
+\begin{frame}\frametitle{Visualisation}
+\begin{itemize}
+\item Introduction
+\item Données 
+\item Carte interactive de la France 
+\end{itemize} 
+\end{frame}
+
+\subsection{Introduction}
+\begin{frame}\frametitle{Introduction}
+La visualisation des données est la représentation graphique de ces dernières avec un ensemble de méthodes permettant de résumer de manière graphique les données statistiques qualitatives et surtout quantitatives afin de montrer les liens entre les ensembles.
+
+\end{frame}
+
+\subsection{Données}
+\begin{frame}\frametitle{Données}
+Résultat de la préparation de données :
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+    nom & 2018 & 2019 & 2020 & 2021 & Consom annuelle moy   \\
+    du département &  & & & &   du départ(MWh) \\
+\hline
+Ain   &  18247.061 &18483.283 &18951.739 &19684.835 & 18841.72950\\
+\hline
+Aisne  &  6547.691&6473.455 &6429.435 &6698.497 &6537.26950 \\
+\hline
+Allier  &  2551.530 &  2586.915&2646.192 &2786.482 &2642.77975\\
+\hline
+..  &  .. & .. & ..& ..&..\\
+\hline
+..  &  .. & ..&..& ..&..\\
+\hline
+Vosges & 3469.141 & 3542.653 & 3558.344 &  3823.023 & 3598.29025\\
+\hline
+Yonne  &  5588.458 & 5521.004 & 5436.047 & 5847.383 & 5598.22300\\
+\hline
+Yvelines     & 66549.988 & 66820.568 & 68077.037 & 71352.954 &68200.13675\\
+\hline
+\end{tabular}
+\end{frame}
+
+\subsection{Carte interactive de la France}
+\begin{frame}\frametitle{Carte interactive de la France}
+ \begin{figure}[htb]
+        
+        \label{fig:logo_UFES}
+        \centering
+        \includegraphics[width=0.8\textwidth]{map.PNG} 
+        \medskip
+        \caption{Carte interactive de la consommation annuelle moyenne d'électricité en France 2018-2021}
+    \end{figure}
+\end{frame}
+
+\subsection{}
+\begin{frame}\frametitle{}
+ \begin{figure}[htb]
+        
+        \label{fig:logo_UFES}
+        \centering
+        \includegraphics[width=0.8\textwidth]{diagramme.PNG} 
+        \medskip
+        \caption{Diagramme de la consommation annuelle moyenne d'électricité par département}
+    \end{figure}
+\end{frame}
+
+
+
+\end{document}
