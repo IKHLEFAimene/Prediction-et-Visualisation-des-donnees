@@ -1,7 +1,7 @@
 # Thème: Consommation de l'éléctricité en France
-Le projet consiste à gérer des ensembles de données sur la consommation d'électricité française avec la motivation de créer :
+Le projet consiste à gérer des ensembles de données sur la consommation d'électricité en France  avec la motivation de créer :
 - Visualisation des données sur une carte interactive(Clickable) de la France au niveau de la ville affichant la consommation annuelle moyenne d'électricité des ménages entre 2018 et 2021. 
-- Prédiction de la consommation du jeudi 8 décembre sur l'ensemble de la journée.
+- Prédiction de la consommation du jeudi 8 décembre 2022 sur l'ensemble de la journée.
 ## Group Membres
 
 Ce Projet comporte deux  Parties la prédiction traitée par ABDOULAYE DIOP et la visualisation des données traitée par IKHLEF AIMENE
