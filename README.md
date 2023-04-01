@@ -8,7 +8,7 @@ Ce Projet comporte deux  Parties la prédiction traitée par ABDOULAYE DIOP et l
 
 IKHLEF Aimene  : aimene.ikhlef@etu.umotpellier.com
 
-DIOP Abdoulaye : abdoulaye.diop@etu.umontpellier.com 
+DIOP Abdoulaye : abdoulaye.diop03@etu.umontpellier.com 
 
 ## Workplan
 ### Prédiction
